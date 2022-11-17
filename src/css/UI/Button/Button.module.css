@@ -1,0 +1,13 @@
+.defaultItem {
+  margin: 1rem auto;
+  padding: 1rem;
+  font-size: 1.2rem;
+  font-family: inherit;
+  background-color: rgba(106, 190, 179, 0.575);
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.defaultItem:hover {
+  opacity: 0.7;
+}
