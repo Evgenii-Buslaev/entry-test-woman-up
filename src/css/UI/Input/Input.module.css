@@ -1,0 +1,16 @@
+.input {
+  margin: 1rem auto;
+  padding: 0 20px;
+  width: 80%;
+  height: 50px;
+  border: solid rgba(52, 139, 26, 0.781) thin;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 500px) {
+  .input {
+    width: 75%;
+  }
+}
