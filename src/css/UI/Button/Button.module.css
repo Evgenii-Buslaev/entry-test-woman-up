@@ -1,10 +1,10 @@
 .defaultItem {
   margin: 1rem auto;
-  padding: 1rem;
+  padding: 0.7rem 1rem;
   font-size: 1.2rem;
   font-family: inherit;
   background-color: rgba(106, 190, 179, 0.575);
-  border-radius: 20px;
+  border-radius: 10px;
   cursor: pointer;
 }
 

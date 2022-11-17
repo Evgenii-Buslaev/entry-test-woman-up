@@ -12,22 +12,28 @@ const Form = () => {
   const [openned, setOpenned] = useState(true);
   const [files, setFiles] = useState([]);
 
-  console.log(files);
-
   return (
-    <form className={styles.form}>
+    <form className={styles.form} onSubmit={() => console.log(1)}>
       <Input text="Название" />
       <Input text="Задача" />
       <InputDate text="Дедлайн" />
       <Button
         text="Добавить файл"
-        click={(e) => createAddingFile(e, files, setFiles)}
+        type="button"
+        click={() => createAddingFile(files, setFiles)}
       />
-      {files.length > 0
-        ? files.map((elem) => (
-            <InputFile id={elem.id} key={elem.id} click={{ files, setFiles }} />
-          ))
-        : null}
+      {files.length > 0 &&
+        files.map((elem) => (
+          <InputFile id={elem.id} key={elem.id} click={{ files, setFiles }} />
+        ))}
+      <Button
+        text="Создать"
+        type="submit"
+        click={(e) => {
+          e.preventDefault();
+          console.log("submit!");
+        }}
+      />
     </form>
   );
 };
