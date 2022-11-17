@@ -6,7 +6,8 @@
   width: 50vw;
   height: auto;
   margin-top: 30px;
-  border-radius: 40px;
+  padding: 1rem;
+  border-radius: 20px;
   background-color: rgba(118, 219, 206, 0.575);
 }
 
@@ -31,5 +32,6 @@
 @media (max-width: 500px) {
   .form {
     margin-top: 20px;
+    padding: 0;
   }
 }
