@@ -11,6 +11,13 @@
   background-color: rgba(118, 219, 206, 0.575);
 }
 
+.close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 50px;
+}
+
 @media (max-width: 1400px) {
   .form {
     width: 700px;
@@ -23,6 +30,16 @@
   }
 }
 
+@media (max-width: 750px) {
+  .close {
+    top: 1rem;
+    width: 30px;
+  }
+  .form {
+    margin-top: 50px;
+  }
+}
+
 @media (max-width: 600px) {
   .form {
     width: 90vw;
@@ -31,7 +48,6 @@
 
 @media (max-width: 500px) {
   .form {
-    margin-top: 20px;
     padding: 0;
   }
 }

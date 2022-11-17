@@ -10,6 +10,7 @@ import createAddingFile from "../../handlers/form/createAddingFile";
 import validateForm from "../../handlers/form/validate";
 
 import addFile from "../../assets/icons/add-file.png";
+import closeForm from "../../assets/icons/close.png";
 
 import styles from "../../css/components/Form/Form.module.css";
 
@@ -38,10 +39,16 @@ const Form = ({ close }) => {
           click={(e) => {
             e.preventDefault();
             validateForm();
-            close();
             console.log("submit!");
+            close();
           }}
         />
+        <img
+          className={styles.close}
+          src={closeForm}
+          alt="close"
+          onClick={close}
+        ></img>
       </form>
     </>
   );
