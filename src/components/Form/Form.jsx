@@ -5,7 +5,9 @@ import InputDate from "../../UI/InputDate/InputDate";
 import InputFile from "../../UI/InputFile/InputFile";
 import Button from "../../UI/Button/Button";
 import ImageButton from "../../UI/ImageButton/ImageButton";
+
 import createAddingFile from "../../handlers/form/createAddingFile";
+import validateForm from "../../handlers/form/validate";
 
 import addFile from "../../assets/icons/add-file.png";
 
@@ -35,6 +37,7 @@ const Form = ({ close }) => {
           type="submit"
           click={(e) => {
             e.preventDefault();
+            validateForm();
             close();
             console.log("submit!");
           }}
