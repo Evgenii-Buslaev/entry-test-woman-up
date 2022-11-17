@@ -1,0 +1,35 @@
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50vw;
+  height: 300px;
+  margin-top: 30px;
+  border-radius: 40px;
+  background-color: rgba(118, 219, 206, 0.575);
+}
+
+@media (max-width: 1400px) {
+  .form {
+    width: 700px;
+  }
+}
+
+@media (max-width: 900px) {
+  .form {
+    width: 500px;
+  }
+}
+
+@media (max-width: 600px) {
+  .form {
+    width: 90vw;
+  }
+}
+
+@media (max-width: 500px) {
+  .form {
+    margin-top: 20px;
+    height: 250px;
+  }
+}

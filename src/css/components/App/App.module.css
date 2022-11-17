@@ -1,0 +1,19 @@
+.App {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: rgba(142, 219, 118, 0.418);
+}
+
+.header {
+  margin-top: 30px;
+}
+
+@media (max-width: 500px) {
+  .header {
+    font-size: 1.5rem;
+  }
+}
