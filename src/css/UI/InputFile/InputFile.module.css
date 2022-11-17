@@ -27,8 +27,13 @@
   cursor: pointer;
 }
 
-.file::file-selector-button:hover {
+.file::file-selector-button:hover,
+.cancel:hover {
   opacity: 0.8;
+}
+
+.cancel {
+  width: 20px;
 }
 
 @media (max-width: 500px) {
