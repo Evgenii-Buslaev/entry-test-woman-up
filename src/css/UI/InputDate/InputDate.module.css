@@ -1,0 +1,25 @@
+.cont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0.5rem auto;
+  padding: 0 1.2rem;
+  width: 80%;
+  height: 50px;
+  border: solid rgba(52, 139, 26, 0.781) thin;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 1.2rem;
+}
+
+.date {
+  font-size: 1.2rem;
+  font-family: inherit;
+  color: rgb(143, 61, 61);
+}
+
+@media (max-width: 500px) {
+  .cont {
+    width: 75%;
+  }
+}
