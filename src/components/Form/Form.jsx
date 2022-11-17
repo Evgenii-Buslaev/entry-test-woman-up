@@ -4,7 +4,10 @@ import Input from "../../UI/Input/Input";
 import InputDate from "../../UI/InputDate/InputDate";
 import InputFile from "../../UI/InputFile/InputFile";
 import Button from "../../UI/Button/Button";
+import ImageButton from "../../UI/ImageButton/ImageButton";
 import createAddingFile from "../../handlers/form/createAddingFile";
+
+import addFile from "../../assets/icons/add-file.png";
 
 import styles from "../../css/components/Form/Form.module.css";
 
@@ -17,10 +20,11 @@ const Form = () => {
       <Input text="Название" />
       <Input text="Задача" />
       <InputDate text="Дедлайн" />
-      <Button
-        text="Добавить файл"
-        type="button"
+      <ImageButton
         click={() => createAddingFile(files, setFiles)}
+        title="Добавить файл"
+        path={addFile}
+        alt="add files"
       />
       {files.length > 0 &&
         files.map((elem) => (

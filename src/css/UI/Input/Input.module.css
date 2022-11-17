@@ -9,6 +9,10 @@
   font-size: 1.2rem;
 }
 
+.input:focus {
+  border: solid rgba(52, 139, 26, 0.925);
+}
+
 @media (max-width: 500px) {
   .input {
     width: 75%;
