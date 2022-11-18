@@ -1,7 +1,8 @@
-const editTodoTitle = (id, value, store) => {
+const editTodoTitle = (id, value, store, setText) => {
   const { list, setList } = store;
   if (!value) {
     alert("Поле не может быть пустым.");
+    setText(list.find((elem) => elem.id === id).task);
     return;
   }
   const elem = list.filter((todo) => todo.id === id);

@@ -28,7 +28,7 @@ const TodoItem = ({ data, store }) => {
         className={styles.text}
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-        onBlur={(e) => editTodoTitle(id, e.target.value, store)}
+        onBlur={(e) => editTodoTitle(id, e.target.value, store, setTitle)}
       ></input>
       {date ? <div className={styles.deadline}>До {date}</div> : null}
       <div className={styles.btns}>
