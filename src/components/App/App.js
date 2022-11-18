@@ -12,7 +12,9 @@ function App() {
   };
 
   return (
-    <div className={styles.App}>
+    <div
+      className={openForm ? `${styles.App} ${styles.formActive}` : styles.App}
+    >
       {openForm ? (
         <Form close={() => formAction(false)} />
       ) : (

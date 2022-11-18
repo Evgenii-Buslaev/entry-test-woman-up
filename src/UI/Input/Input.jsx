@@ -7,7 +7,7 @@ const Input = ({ text, data }) => {
     <input
       type="text"
       className={styles.input}
-      placeholder={text}
+      placeholder={`${text} *`}
       value={state}
       onChange={(e) => setState(e.target.value)}
     ></input>
