@@ -6,6 +6,7 @@ import InputFile from "../../UI/InputFile/InputFile";
 import Button from "../../UI/Button/Button";
 import ImageButton from "../../UI/ImageButton/ImageButton";
 
+import useForm from "../../hooks/useForm";
 import createAddingFile from "../../handlers/form/createAddingFile";
 import validateForm from "../../handlers/form/validate";
 
@@ -15,13 +16,13 @@ import closeForm from "../../assets/icons/close.png";
 import styles from "../../css/components/Form/Form.module.css";
 
 const Form = ({ close }) => {
-  const [task, setTask] = useState("");
-  const [description, setDescription] = useState("");
-  const [date, setDate] = useState("");
-  const [filesAmount, setFilesAmount] = useState([]);
-  const [filesStore, setFilesStore] = useState([]);
+  const formData = useForm();
 
-  console.log({ task, description, date, filesStore });
+  const { task, description, date, filesAmount, filesStore } = formData.data;
+  const { setTask, setDescription, setDate, setFilesAmount, setFilesStore } =
+    formData.set;
+
+  console.log(formData.data);
 
   return (
     <>
@@ -53,7 +54,6 @@ const Form = ({ close }) => {
           click={(e) => {
             e.preventDefault();
             validateForm();
-            console.log("submit!");
             close();
           }}
         />
