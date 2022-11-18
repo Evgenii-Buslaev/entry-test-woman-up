@@ -21,8 +21,17 @@ const Form = ({ close, data }) => {
   const { setTask, setDescription, setDate, setFilesAmount, setFilesStore } =
     formData.set;
 
+  const submitForm = (e) => {
+    e.preventDefault();
+    if (validateForm(formData.data)) {
+      formData.data.id = Math.random();
+      setList([...list, formData.data].sort((prev, curr) => prev.id - curr.id));
+      close();
+    }
+  };
+
   return (
-    <form className={styles.form} onSubmit={() => console.log(1)}>
+    <form className={styles.form} onSubmit={(e) => submitForm(e)}>
       <Input text="Название" data={{ state: task, setState: setTask }} />
       <Input
         text="Задача"
@@ -44,20 +53,7 @@ const Form = ({ close, data }) => {
             data={{ state: filesStore, setState: setFilesStore }}
           />
         ))}
-      <Button
-        text="Создать"
-        type="submit"
-        click={(e) => {
-          e.preventDefault();
-          if (validateForm(formData.data)) {
-            formData.data.id = Math.random();
-            setList(
-              [...list, formData.data].sort((prev, curr) => prev.id - curr.id)
-            );
-            close();
-          }
-        }}
-      />
+      <Button text="Создать" type="submit" click={(e) => submitForm(e)} />
       <img
         className={styles.close}
         src={closeForm}
