@@ -6,7 +6,12 @@ const TodoList = ({ list }) => {
   return (
     <ul className={styles.list}>
       {list.map((todo) => (
-        <TodoItem task={todo.task} id={todo.id} />
+        <TodoItem
+          key={Math.random()}
+          task={todo.task}
+          id={todo.id}
+          deadline={todo.date}
+        />
       ))}
     </ul>
   );

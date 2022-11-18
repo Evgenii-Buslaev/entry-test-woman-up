@@ -1,17 +1,36 @@
 .item {
+  margin: 1rem 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: 80%;
   height: auto;
-  border: solid black;
-  background-color: rgba(74, 123, 212, 0.527);
+  border-radius: 20px;
+  background-color: rgba(74, 212, 182, 0.377);
+}
+
+.deadline {
+  width: 10%;
+  height: auto;
 }
 
 .btns {
+  margin: 0 3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 10%;
   height: auto;
+}
+
+.text {
+  margin-left: 2rem;
+  width: 70%;
+  font-family: inherit;
+  font-size: 1.2rem;
+}
+
+.done {
+  border: solid rgba(128, 128, 128, 0.637) thin;
+  background-color: rgba(128, 128, 128, 0.363);
 }

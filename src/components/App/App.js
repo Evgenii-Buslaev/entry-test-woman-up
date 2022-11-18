@@ -13,6 +13,8 @@ function App() {
     return action ? setOpenForm(true) : setOpenForm(false);
   };
 
+  console.log(list);
+
   return (
     <div
       className={openForm ? `${styles.App} ${styles.formActive}` : styles.App}

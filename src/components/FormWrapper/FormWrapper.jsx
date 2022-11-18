@@ -12,7 +12,6 @@ const FormWrapper = ({ open }) => {
         path={createTodo}
         alt="create todo"
       />
-      <h3 className={styles.header}>Создайте задачу</h3>
     </div>
   );
 };
