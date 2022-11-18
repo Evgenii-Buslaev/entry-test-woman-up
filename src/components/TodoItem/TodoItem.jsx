@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import ImageButton from "../../UI/ImageButton/ImageButton";
 
 import {
@@ -13,17 +13,11 @@ import doneBtn from "../../assets/icons/done.png";
 import styles from "../../css/components/TodoItem/TodoItem.module.css";
 
 const TodoItem = ({ data, store }) => {
-  const taskRef = useRef(null);
-
   const { id, task, date, done } = data;
   const [title, setTitle] = useState(task);
 
   return (
-    <div
-      className={done ? `${styles.item} ${styles.done}` : styles.item}
-      id={id}
-      ref={taskRef}
-    >
+    <div className={done ? `${styles.item} ${styles.done}` : styles.item}>
       <input
         className={styles.text}
         value={title}

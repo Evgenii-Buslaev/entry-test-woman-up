@@ -1,10 +1,10 @@
 .item {
-  margin: 1rem 0;
+  margin: 0.5rem 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 80%;
-  height: auto;
+  height: 80px;
   border-radius: 20px;
   background-color: rgba(74, 212, 182, 0.377);
   cursor: pointer;
@@ -20,7 +20,7 @@
 }
 
 .btns {
-  margin: 0 3rem;
+  margin: 0.5rem 3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -60,6 +60,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: auto;
   }
   .text {
     width: 100%;
