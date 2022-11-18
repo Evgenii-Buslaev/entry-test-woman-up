@@ -7,6 +7,11 @@
   height: auto;
   border-radius: 20px;
   background-color: rgba(74, 212, 182, 0.377);
+  cursor: pointer;
+}
+
+.item:hover {
+  background-color: rgba(74, 212, 182, 0.651);
 }
 
 .deadline {
