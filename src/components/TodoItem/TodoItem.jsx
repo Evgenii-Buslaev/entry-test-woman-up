@@ -11,6 +11,14 @@ const TodoItem = ({ data, store }) => {
   const { list, setList } = store;
   const [title, setTitle] = useState(task);
 
+  const deleteTask = (id) => {
+    setList(
+      list
+        .filter((elem) => elem.id !== id)
+        .sort((prev, curr) => prev.id - curr.id)
+    );
+  };
+
   const editText = (id, value) => {
     const elem = list.filter((todo) => todo.id === id);
     const otherElems = list.filter((todo) => todo.id !== id);
@@ -42,6 +50,7 @@ const TodoItem = ({ data, store }) => {
           title="Удалить задачу"
           path={removeBtn}
           alt="remove task"
+          click={() => deleteTask(id)}
         />
         <ImageButton
           title="Пометить как завершенную/незавершенную"
