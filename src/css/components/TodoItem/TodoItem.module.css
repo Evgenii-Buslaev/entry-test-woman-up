@@ -34,3 +34,40 @@
   border: solid rgba(128, 128, 128, 0.637) thin;
   background-color: rgba(128, 128, 128, 0.363);
 }
+
+@media (max-width: 1600px) {
+  .text {
+    width: 60%;
+  }
+  .deadline {
+    width: 20%;
+  }
+}
+
+@media (max-width: 900px) {
+  .item {
+    width: 90%;
+  }
+}
+
+@media (max-width: 750px) {
+  .item {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .text {
+    width: 100%;
+    text-align: center;
+    margin: 1rem 0;
+  }
+  .deadline {
+    text-align: right;
+    margin-right: 2rem;
+    width: 100%;
+  }
+  .btns {
+    width: 50%;
+    align-items: center;
+  }
+}

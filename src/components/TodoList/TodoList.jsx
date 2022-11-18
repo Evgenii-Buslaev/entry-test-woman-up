@@ -4,11 +4,11 @@ import styles from "../../css/components/TodoList/TodoList.module.css";
 
 const TodoList = ({ store }) => {
   return (
-    <ul className={styles.list}>
+    <div className={styles.list}>
       {store.list.map((todo) => (
         <TodoItem key={Math.random()} data={todo} store={store} />
       ))}
-    </ul>
+    </div>
   );
 };
 

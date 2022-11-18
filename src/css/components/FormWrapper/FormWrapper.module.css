@@ -1,5 +1,5 @@
 .cont {
-  margin: 2rem auto 0;
+  margin: 2rem auto;
   padding-bottom: 2rem;
   width: 100vw;
   height: auto;
@@ -12,6 +12,13 @@
 .header {
   margin-left: 4rem;
   font-size: 2rem;
+}
+
+@media (max-width: 650px) {
+  .cont {
+    margin: 1rem auto 0;
+    padding-bottom: 1rem;
+  }
 }
 
 @media (max-width: 550px) {

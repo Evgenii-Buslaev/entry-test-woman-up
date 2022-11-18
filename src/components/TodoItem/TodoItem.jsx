@@ -23,7 +23,7 @@ const TodoItem = ({ data, store }) => {
       id={id}
     >
       <input className={styles.text} value={task}></input>
-      <div className={styles.deadline}>До {date}</div>
+      {date ? <div className={styles.deadline}>До {date}</div> : null}
       <div className={styles.btns}>
         <ImageButton
           title="Удалить задачу"
