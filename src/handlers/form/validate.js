@@ -11,10 +11,5 @@ export default function validateForm(data) {
     return false;
   }
 
-  if (filesAmount.length !== filesStore.length) {
-    alert("Пожалуйста, прикрепите файлы ко всем созданным шаблонам");
-    return false;
-  }
-
-  return true;
+  return data;
 }
