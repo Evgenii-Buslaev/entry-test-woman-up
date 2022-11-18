@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import ImageButton from "../../UI/ImageButton/ImageButton";
 
 import removeBtn from "../../assets/icons/delete.png";
@@ -7,6 +7,8 @@ import doneBtn from "../../assets/icons/done.png";
 import styles from "../../css/components/TodoItem/TodoItem.module.css";
 
 const TodoItem = ({ data, store }) => {
+  const taskRef = useRef(null);
+
   const { id, task, date, done } = data;
   const { list, setList } = store;
   const [title, setTitle] = useState(task);
@@ -20,6 +22,11 @@ const TodoItem = ({ data, store }) => {
   };
 
   const editText = (id, value) => {
+    if (!value) {
+      alert("Поле не может быть пустым.");
+      taskRef.focus();
+      return;
+    }
     const elem = list.filter((todo) => todo.id === id);
     const otherElems = list.filter((todo) => todo.id !== id);
     elem[0].task = value;
@@ -37,6 +44,7 @@ const TodoItem = ({ data, store }) => {
     <div
       className={done ? `${styles.item} ${styles.done}` : styles.item}
       id={id}
+      ref={taskRef}
     >
       <input
         className={styles.text}
