@@ -13,8 +13,9 @@ import closeForm from "../../assets/icons/close.png";
 
 import styles from "../../css/components/Form/Form.module.css";
 
-const Form = ({ close }) => {
+const Form = ({ close, data }) => {
   const formData = useForm();
+  const { list, setList } = data;
 
   const { task, description, date, filesAmount, filesStore } = formData.data;
   const { setTask, setDescription, setDate, setFilesAmount, setFilesStore } =
@@ -49,6 +50,7 @@ const Form = ({ close }) => {
         click={(e) => {
           e.preventDefault();
           if (validateForm(formData.data)) {
+            setList([...list, formData.data]);
             close();
           }
         }}

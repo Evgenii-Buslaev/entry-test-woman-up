@@ -1,0 +1,17 @@
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  border: solid black;
+  background-color: rgba(74, 123, 212, 0.527);
+}
+
+.btns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 10%;
+  height: auto;
+}
