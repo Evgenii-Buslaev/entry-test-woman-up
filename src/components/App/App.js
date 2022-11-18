@@ -24,7 +24,7 @@ function App() {
       ) : (
         <>
           <FormWrapper open={() => formAction(true)} />
-          <TodoList list={list} />
+          <TodoList store={{ list, setList }} />
         </>
       )}
     </div>

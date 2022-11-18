@@ -50,7 +50,10 @@ const Form = ({ close, data }) => {
         click={(e) => {
           e.preventDefault();
           if (validateForm(formData.data)) {
-            setList([...list, formData.data]);
+            formData.data.id = Math.random();
+            setList(
+              [...list, formData.data].sort((prev, curr) => prev.id - curr.id)
+            );
             close();
           }
         }}
