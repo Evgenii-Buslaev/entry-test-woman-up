@@ -1,14 +1,45 @@
-const editTodoTitle = (id, value, store, setText) => {
+const editTodoProp = (id, prop, value, store, setFunc) => {
   const { list, setList } = store;
+
   if (!value) {
     alert("Поле не может быть пустым.");
-    setText(list.find((elem) => elem.id === id).task);
+    const elem = list.find((elem) => elem.id === id);
+    switch (prop) {
+      case "task":
+        setFunc(elem.task);
+        break;
+      case "description":
+        setFunc(elem.description);
+        break;
+      case "date":
+        setFunc(elem.date);
+        break;
+      case "files":
+        setFunc(elem.files);
+        break;
+    }
     return;
   }
-  const elem = list.filter((todo) => todo.id === id);
+
+  const elem = list.filter((todo) => todo.id === id)[0];
   const otherElems = list.filter((todo) => todo.id !== id);
-  elem[0].task = value;
-  setList([...otherElems, ...elem].sort((prev, curr) => prev.id - curr.id));
+
+  switch (prop) {
+    case "task":
+      elem.task = value;
+      break;
+    case "description":
+      elem.description = value;
+      break;
+    case "date":
+      elem.date = value;
+      break;
+    case "files":
+      elem.files = value;
+      break;
+  }
+
+  setList([...otherElems, elem].sort((prev, curr) => prev.id - curr.id));
 };
 
 const deleteTodo = (id, store) => {
@@ -32,4 +63,4 @@ const toggleOpenned = (state, setState) => {
   setState(!state);
 };
 
-export { editTodoTitle, deleteTodo, toggleTodoDone, toggleOpenned };
+export { editTodoProp, deleteTodo, toggleTodoDone, toggleOpenned };

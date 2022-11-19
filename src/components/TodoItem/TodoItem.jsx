@@ -2,7 +2,7 @@ import { useState } from "react";
 import ImageButton from "../../UI/ImageButton/ImageButton";
 
 import {
-  editTodoTitle,
+  editTodoProp,
   deleteTodo,
   toggleTodoDone,
   toggleOpenned,
@@ -17,10 +17,12 @@ import styles from "../../css/components/TodoItem/TodoItem.module.css";
 
 const TodoItem = ({ data, store }) => {
   const { id, task, date, description, filesStore, done } = data;
-  const [title, setTitle] = useState(task);
-  const [openned, setOpenned] = useState(false);
 
-  console.log(openned);
+  const [openned, setOpenned] = useState(false);
+  const [taskTitle, setTaskTitle] = useState(task);
+  const [taskDescription, setTaskDescription] = useState(description);
+  const [taskDate, setTaskDate] = useState(date);
+  const [taskFilesStore, setTaksFilesStore] = useState(filesStore);
 
   return (
     <div className={done ? `${styles.item} ${styles.done}` : styles.item}>
@@ -35,9 +37,11 @@ const TodoItem = ({ data, store }) => {
           />
           <input
             className={styles.text}
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            onBlur={(e) => editTodoTitle(id, e.target.value, store, setTitle)}
+            value={taskTitle}
+            onChange={(e) => setTaskTitle(e.target.value)}
+            onBlur={(e) =>
+              editTodoProp(id, "task", e.target.value, store, setTaskTitle)
+            }
           ></input>
         </div>
         {openned && (
