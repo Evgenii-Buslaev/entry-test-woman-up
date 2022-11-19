@@ -46,14 +46,45 @@ const TodoItem = ({ data, store }) => {
         </div>
         {openned && (
           <div className={styles.additional}>
-            <p>{description}</p>
+            <textarea
+              value={taskDescription}
+              onChange={(e) => setTaskDescription(e.target.value)}
+              onBlur={(e) =>
+                editTodoProp(
+                  id,
+                  "description",
+                  e.target.value,
+                  store,
+                  setTaskDescription
+                )
+              }
+            />
             {filesStore.map((elem) => (
               <h6>{elem.path}</h6>
             ))}
           </div>
         )}
       </div>
-      {date ? <div className={styles.deadline}>До {date}</div> : null}
+      {date ? (
+        <div className={styles.deadline}>
+          <label htmlFor="deadline">Дедлайн</label>
+          <input
+            type="date"
+            name="deadline"
+            value={taskDate}
+            onChange={(e) => setTaskDate(e.target.value)}
+            onBlur={(e) =>
+              editTodoProp(
+                id,
+                "date",
+                e.target.value,
+                store,
+                setTaskDescription
+              )
+            }
+          />
+        </div>
+      ) : null}
       <div className={styles.btns}>
         <ImageButton
           title="Удалить задачу"

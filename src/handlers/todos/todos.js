@@ -1,3 +1,5 @@
+import defineDone from "../form/defineDone";
+
 const editTodoProp = (id, prop, value, store, setFunc) => {
   const { list, setList } = store;
 
@@ -21,7 +23,7 @@ const editTodoProp = (id, prop, value, store, setFunc) => {
     return;
   }
 
-  const elem = list.filter((todo) => todo.id === id)[0];
+  let elem = list.filter((todo) => todo.id === id)[0];
   const otherElems = list.filter((todo) => todo.id !== id);
 
   switch (prop) {
@@ -33,6 +35,7 @@ const editTodoProp = (id, prop, value, store, setFunc) => {
       break;
     case "date":
       elem.date = value;
+      elem = defineDone(elem);
       break;
     case "files":
       elem.files = value;
