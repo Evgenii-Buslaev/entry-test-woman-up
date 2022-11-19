@@ -5,6 +5,7 @@ import {
   editTodoProp,
   deleteTodo,
   toggleTodoDone,
+  deleteFilePath,
 } from "../../handlers/todos/todos";
 
 import removeBtn from "../../assets/icons/delete.png";
@@ -13,6 +14,7 @@ import doneBtn from "../../assets/icons/done.png";
 import styles from "../../css/components/TodoItem/TodoItem.module.css";
 import TodoItemTitle from "../TodoItemTitle/TodoItemTitle";
 import Deadline from "../Deadline/Deadline";
+import TodoFileItem from "../TodoFileItem/TodoFileItem";
 
 const TodoItem = ({ data, store }) => {
   const { id, task, date, description, filesStore, done } = data;
@@ -49,7 +51,11 @@ const TodoItem = ({ data, store }) => {
               }
             />
             {filesStore.map((elem) => (
-              <h6 key={Math.random()}>{elem.path}</h6>
+              <TodoFileItem
+                key={Math.random()}
+                path={elem.path}
+                click={() => deleteFilePath(id, store, elem.id)}
+              />
             ))}
           </div>
         )}

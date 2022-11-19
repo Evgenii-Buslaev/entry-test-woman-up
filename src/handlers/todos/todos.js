@@ -54,6 +54,18 @@ const deleteTodo = (id, store) => {
   );
 };
 
+const deleteFilePath = (id, store, fileId) => {
+  const { list, setList } = store;
+
+  const task = list.find((elem) => elem.id === id);
+  const files = task.filesStore.filter((obj) => obj.id !== fileId);
+  task.filesStore = files;
+
+  const otherTasks = list.filter((elem) => elem.id !== id);
+
+  setList([...otherTasks, task].sort((prev, curr) => prev.id - curr.id));
+};
+
 const toggleTodoDone = (id, store) => {
   const { list, setList } = store;
   const elem = list.filter((todo) => todo.id === id);
@@ -66,4 +78,10 @@ const toggleOpenned = (state, setState) => {
   setState(!state);
 };
 
-export { editTodoProp, deleteTodo, toggleTodoDone, toggleOpenned };
+export {
+  editTodoProp,
+  deleteTodo,
+  toggleTodoDone,
+  toggleOpenned,
+  deleteFilePath,
+};

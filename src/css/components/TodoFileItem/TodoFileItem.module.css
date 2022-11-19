@@ -1,0 +1,20 @@
+.line {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.line h6 {
+  margin: 0.5rem 0;
+}
+
+.line img {
+  width: 15px;
+  cursor: pointer;
+}
+
+.line img:hover {
+  opacity: 0.7;
+}
