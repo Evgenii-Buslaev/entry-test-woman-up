@@ -5,15 +5,14 @@ import {
   editTodoProp,
   deleteTodo,
   toggleTodoDone,
-  toggleOpenned,
 } from "../../handlers/todos/todos";
 
 import removeBtn from "../../assets/icons/delete.png";
 import doneBtn from "../../assets/icons/done.png";
-import expandBtn from "../../assets/icons/expand.png";
-import turnBtn from "../../assets/icons/turn.png";
 
 import styles from "../../css/components/TodoItem/TodoItem.module.css";
+import TodoItemTitle from "../TodoItemTitle/TodoItemTitle";
+import Deadline from "../Deadline/Deadline";
 
 const TodoItem = ({ data, store }) => {
   const { id, task, date, description, filesStore, done } = data;
@@ -27,23 +26,13 @@ const TodoItem = ({ data, store }) => {
   return (
     <div className={done ? `${styles.item} ${styles.done}` : styles.item}>
       <div className={styles.lines}>
-        <div className={styles.firstLine}>
-          <img
-            className={styles.openClose}
-            title={openned ? "Свернуть" : "Раскрыть"}
-            src={openned ? turnBtn : expandBtn}
-            alt={openned ? "Turn" : "Expand"}
-            onClick={() => toggleOpenned(openned, setOpenned)}
-          />
-          <input
-            className={styles.text}
-            value={taskTitle}
-            onChange={(e) => setTaskTitle(e.target.value)}
-            onBlur={(e) =>
-              editTodoProp(id, "task", e.target.value, store, setTaskTitle)
-            }
-          ></input>
-        </div>
+        <TodoItemTitle
+          id={id}
+          store={store}
+          state={{ taskTitle, setTaskTitle }}
+          openned={openned}
+          setOpenned={setOpenned}
+        />
         {openned && (
           <div className={styles.additional}>
             <textarea
@@ -60,30 +49,13 @@ const TodoItem = ({ data, store }) => {
               }
             />
             {filesStore.map((elem) => (
-              <h6>{elem.path}</h6>
+              <h6 key={Math.random()}>{elem.path}</h6>
             ))}
           </div>
         )}
       </div>
       {date ? (
-        <div className={styles.deadline}>
-          <label htmlFor="deadline">Дедлайн</label>
-          <input
-            type="date"
-            name="deadline"
-            value={taskDate}
-            onChange={(e) => setTaskDate(e.target.value)}
-            onBlur={(e) =>
-              editTodoProp(
-                id,
-                "date",
-                e.target.value,
-                store,
-                setTaskDescription
-              )
-            }
-          />
-        </div>
+        <Deadline id={id} state={{ taskDate, setTaskDate }} store={store} />
       ) : null}
       <div className={styles.btns}>
         <ImageButton
