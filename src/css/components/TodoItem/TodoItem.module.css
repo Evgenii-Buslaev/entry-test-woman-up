@@ -29,6 +29,9 @@
 }
 
 .text {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   margin-left: 2rem;
   width: 70%;
   font-family: inherit;
@@ -38,6 +41,18 @@
 .done {
   border: solid rgba(128, 128, 128, 0.637) thin;
   background-color: rgba(128, 128, 128, 0.363);
+}
+
+.openClose {
+  margin-left: 1rem;
+  width: 30px;
+}
+
+.firstLine {
+  width: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 @media (max-width: 1600px) {
@@ -64,7 +79,7 @@
   }
   .text {
     width: 100%;
-    text-align: center;
+    padding-left: 1rem;
     margin: 1rem 0;
   }
   .deadline {
@@ -75,5 +90,8 @@
   .btns {
     width: 50%;
     align-items: center;
+  }
+  .firstLine {
+    width: 100%;
   }
 }
