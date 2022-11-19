@@ -7,6 +7,7 @@ import ImageButton from "../../UI/ImageButton/ImageButton";
 import useForm from "../../hooks/useForm";
 import createAddingFile from "../../handlers/form/createAddingFile";
 import validateForm from "../../handlers/form/validate";
+import defineDone from "../../handlers/form/defineDone";
 
 import addFile from "../../assets/icons/add-file.png";
 import closeForm from "../../assets/icons/close.png";
@@ -25,6 +26,7 @@ const Form = ({ close, data }) => {
     e.preventDefault();
     if (validateForm(formData.data)) {
       formData.data.id = Math.random();
+      defineDone(formData.data);
       setList([...list, formData.data].sort((prev, curr) => prev.id - curr.id));
       close();
     }
