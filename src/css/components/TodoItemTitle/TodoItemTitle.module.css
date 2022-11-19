@@ -1,8 +1,8 @@
 .container {
   margin: 1rem 0;
-  width: auto;
+  width: 500px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -32,10 +32,10 @@
   }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 1200px) {
   .container {
     margin: 0;
-    width: 100%;
+    width: 350px;
   }
   .text {
     width: 100%;

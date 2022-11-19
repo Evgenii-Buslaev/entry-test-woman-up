@@ -23,7 +23,9 @@ const TodoItem = ({ data, store }) => {
   const [taskTitle, setTaskTitle] = useState(task);
   const [taskDescription, setTaskDescription] = useState(description);
   const [taskDate, setTaskDate] = useState(date);
-  const [taskFilesStore, setTaksFilesStore] = useState(filesStore);
+
+  const editDescription = (e) =>
+    editTodoProp(id, "description", e.target.value, store, setTaskDescription);
 
   return (
     <div className={done ? `${styles.item} ${styles.done}` : styles.item}>
@@ -40,15 +42,7 @@ const TodoItem = ({ data, store }) => {
             <textarea
               value={taskDescription}
               onChange={(e) => setTaskDescription(e.target.value)}
-              onBlur={(e) =>
-                editTodoProp(
-                  id,
-                  "description",
-                  e.target.value,
-                  store,
-                  setTaskDescription
-                )
-              }
+              onBlur={editDescription}
             />
             {filesStore.map((elem) => (
               <TodoFileItem
