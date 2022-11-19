@@ -5,6 +5,7 @@ import {
   editTodoTitle,
   deleteTodo,
   toggleTodoDone,
+  toggleOpenned,
 } from "../../handlers/todos/todos";
 
 import removeBtn from "../../assets/icons/delete.png";
@@ -15,7 +16,7 @@ import turnBtn from "../../assets/icons/turn.png";
 import styles from "../../css/components/TodoItem/TodoItem.module.css";
 
 const TodoItem = ({ data, store }) => {
-  const { id, task, date, done } = data;
+  const { id, task, date, description, filesStore, done } = data;
   const [title, setTitle] = useState(task);
   const [openned, setOpenned] = useState(false);
 
@@ -23,20 +24,30 @@ const TodoItem = ({ data, store }) => {
 
   return (
     <div className={done ? `${styles.item} ${styles.done}` : styles.item}>
-      <div className={styles.firstLine}>
-        <img
-          className={styles.openClose}
-          title={openned ? "Свернуть" : "Раскрыть"}
-          src={openned ? turnBtn : expandBtn}
-          alt={openned ? "Turn" : "Expand"}
-          onClick={() => setOpenned(!openned)}
-        />
-        <input
-          className={styles.text}
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          onBlur={(e) => editTodoTitle(id, e.target.value, store, setTitle)}
-        ></input>
+      <div className={styles.lines}>
+        <div className={styles.firstLine}>
+          <img
+            className={styles.openClose}
+            title={openned ? "Свернуть" : "Раскрыть"}
+            src={openned ? turnBtn : expandBtn}
+            alt={openned ? "Turn" : "Expand"}
+            onClick={() => toggleOpenned(openned, setOpenned)}
+          />
+          <input
+            className={styles.text}
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            onBlur={(e) => editTodoTitle(id, e.target.value, store, setTitle)}
+          ></input>
+        </div>
+        {openned && (
+          <div className={styles.additional}>
+            <p>{description}</p>
+            {filesStore.map((elem) => (
+              <h6>{elem.path}</h6>
+            ))}
+          </div>
+        )}
       </div>
       {date ? <div className={styles.deadline}>До {date}</div> : null}
       <div className={styles.btns}>

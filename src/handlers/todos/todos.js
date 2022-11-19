@@ -28,4 +28,8 @@ const toggleTodoDone = (id, store) => {
   setList([...otherElems, ...elem].sort((prev, curr) => prev.id - curr.id));
 };
 
-export { editTodoTitle, deleteTodo, toggleTodoDone };
+const toggleOpenned = (state, setState) => {
+  setState(!state);
+};
+
+export { editTodoTitle, deleteTodo, toggleTodoDone, toggleOpenned };

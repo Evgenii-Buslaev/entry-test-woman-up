@@ -4,7 +4,7 @@
   justify-content: space-between;
   align-items: center;
   width: 80%;
-  height: 80px;
+  height: auto;
   border-radius: 20px;
   background-color: rgba(74, 212, 182, 0.377);
   cursor: pointer;
@@ -12,6 +12,37 @@
 
 .item:hover {
   background-color: rgba(74, 212, 182, 0.651);
+}
+
+.openClose {
+  margin-left: 1rem;
+  width: 30px;
+}
+
+.firstLine {
+  margin: 1rem 0;
+  width: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lines {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.text {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 2rem;
+  width: 70%;
+  font-family: inherit;
+  font-size: 1.2rem;
 }
 
 .deadline {
@@ -28,31 +59,23 @@
   height: auto;
 }
 
-.text {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-left: 2rem;
-  width: 70%;
-  font-family: inherit;
-  font-size: 1.2rem;
-}
-
 .done {
   border: solid rgba(128, 128, 128, 0.637) thin;
   background-color: rgba(128, 128, 128, 0.363);
 }
 
-.openClose {
-  margin-left: 1rem;
-  width: 30px;
+.additional {
+  margin: 0 0 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: auto;
+  height: auto;
 }
 
-.firstLine {
-  width: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.additional h6 {
+  margin: 0.5rem auto;
 }
 
 @media (max-width: 1600px) {
@@ -92,6 +115,10 @@
     align-items: center;
   }
   .firstLine {
+    margin: 0;
     width: 100%;
+  }
+  .additional p {
+    width: 90%;
   }
 }

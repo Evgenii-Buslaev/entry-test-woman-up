@@ -9,11 +9,11 @@ function App() {
   const [list, setList] = useState([]);
   const [openForm, setOpenForm] = useState(false);
 
+  console.log(list);
+
   const formAction = (action) => {
     return action ? setOpenForm(true) : setOpenForm(false);
   };
-
-  console.log(list);
 
   return (
     <div
