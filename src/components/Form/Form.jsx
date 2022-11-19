@@ -6,8 +6,7 @@ import ImageButton from "../../UI/ImageButton/ImageButton";
 
 import useForm from "../../hooks/useForm";
 import createAddingFile from "../../handlers/form/createAddingFile";
-import validateForm from "../../handlers/form/validate";
-import defineDone from "../../handlers/form/defineDone";
+import submitForm from "../../handlers/form/submitForm";
 
 import addFile from "../../assets/icons/add-file.png";
 import closeForm from "../../assets/icons/close.png";
@@ -22,18 +21,19 @@ const Form = ({ close, data }) => {
   const { setTask, setDescription, setDate, setFilesAmount, setFilesStore } =
     formData.set;
 
-  const submitForm = (e) => {
-    e.preventDefault();
-    if (validateForm(formData.data)) {
-      formData.data.id = Math.random();
-      defineDone(formData.data);
-      setList([...list, formData.data].sort((prev, curr) => prev.id - curr.id));
+  const submit = (e, data, store) => {
+    const res = submitForm(e, data, store);
+    if (res) {
+      submitForm(e, data, store);
       close();
     }
   };
 
   return (
-    <form className={styles.form} onSubmit={(e) => submitForm(e)}>
+    <form
+      className={styles.form}
+      onSubmit={(e) => submit(e, formData.data, data)}
+    >
       <Input text="Название" data={{ state: task, setState: setTask }} />
       <Input
         text="Задача"
@@ -55,7 +55,11 @@ const Form = ({ close, data }) => {
             data={{ state: filesStore, setState: setFilesStore }}
           />
         ))}
-      <Button text="Создать" type="submit" click={(e) => submitForm(e)} />
+      <Button
+        text="Создать"
+        type="submit"
+        click={(e) => submit(e, formData.data, data)}
+      />
       <img
         className={styles.close}
         src={closeForm}
