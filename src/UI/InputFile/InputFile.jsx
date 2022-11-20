@@ -1,9 +1,10 @@
 import deleteAddingFile from "../../handlers/form/deleteAddingFile";
 
+import upload from "../../assets/icons/upload.png";
 import cancel from "../../assets/icons/cancel.png";
 import styles from "../../css/UI/InputFile/InputFile.module.css";
 
-const InputFile = ({ id, click, data }) => {
+const InputFile = ({ id, click, data, uploaded }) => {
   const { state, setState } = data;
   const { filesAmount, setFilesAmount } = click;
 
@@ -18,6 +19,7 @@ const InputFile = ({ id, click, data }) => {
           setState([...state, { id: e.target.id, path: e.target.value }]);
         }}
       />
+      <img id={id} src={upload} alt="upload" className={styles.cancel}></img>
       <img
         id={id}
         src={cancel}

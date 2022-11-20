@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Input from "../../UI/Input/Input";
 import InputDate from "../../UI/InputDate/InputDate";
 import InputFile from "../../UI/InputFile/InputFile";
@@ -14,8 +15,8 @@ import closeForm from "../../assets/icons/close.png";
 import styles from "../../css/components/Form/Form.module.css";
 
 const Form = ({ close, data }) => {
+  const [uploadProgress, setUploadProgress] = useState(0);
   const formData = useForm();
-  const { list, setList } = data;
 
   const { task, description, date, filesAmount, filesStore } = formData.data;
   const { setTask, setDescription, setDate, setFilesAmount, setFilesStore } =
@@ -55,6 +56,7 @@ const Form = ({ close, data }) => {
             key={elem.id}
             click={{ filesAmount, setFilesAmount }}
             data={{ state: filesStore, setState: setFilesStore }}
+            uploaded={uploadProgress}
           />
         ))}
       <Button
