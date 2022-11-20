@@ -1,28 +1,19 @@
 import { useState, useEffect } from "react";
-import { db } from "../../firebase";
-import { query, collection, onSnapshot } from "firebase/firestore";
 
 import TodoService from "../../API/TodoService";
 import Form from "../Form/Form";
 import FormWrapper from "../FormWrapper/FormWrapper";
 import TodoList from "../TodoList/TodoList";
+import initialState from "../../initialState";
 
 import styles from "../../css/components/App/App.module.css";
 
 function App() {
-  const [list, setList] = useState([]);
+  const [list, setList] = useState(initialState);
   const [openForm, setOpenForm] = useState(false);
 
   useEffect(() => {
-    const q = query(collection(db, "todos"));
-    const unsubscribe = onSnapshot(q, (querySnapshot) => {
-      let todos = [];
-      querySnapshot.forEach((doc) => {
-        todos.push({ ...doc.data(), id: doc.id });
-      });
-      setList(todos);
-    });
-    return () => unsubscribe();
+    TodoService.getAllTodos(setList);
   }, []);
 
   console.log(list);

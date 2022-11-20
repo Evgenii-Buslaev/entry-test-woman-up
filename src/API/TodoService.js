@@ -1,18 +1,17 @@
-/* import { db } from "../firebase.js";
-import { query, collection, onSnapshot } from "firebase/firestore"; */
+import { db } from "../firebase.js";
+import { query, collection, onSnapshot } from "firebase/firestore";
 
 export default class TodoService {
-  /*   static getAllTodos() {
+  static getAllTodos(setFunc) {
     const q = query(collection(db, "todos"));
-    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+    onSnapshot(q, (querySnapshot) => {
       let todos = [];
       querySnapshot.forEach((doc) => {
         todos.push({ ...doc.data(), id: doc.id });
       });
-      console.log(todos);
+      setFunc(todos);
     });
-    unsubscribe();
-  } */
+  }
   static createTodo() {}
   static updateTodo() {}
   static deleteTodo() {}
