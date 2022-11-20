@@ -44,10 +44,12 @@ const TodoItem = ({ data, store }) => {
               onChange={(e) => setTaskDescription(e.target.value)}
               onBlur={editDescription}
             />
-            <TodoFileItem
-              path={filesStore}
-              click={() => deleteFilePath(id, store, elem.id)}
-            />
+            {filesStore && (
+              <TodoFileItem
+                path={filesStore}
+                click={() => deleteFilePath(id, store)}
+              />
+            )}
           </div>
         )}
       </div>

@@ -70,12 +70,11 @@ const deleteTodo = (id, store) => {
   }
 };
 
-const deleteFilePath = (id, store, fileId) => {
+const deleteFilePath = (id, store) => {
   const { list, setList } = store;
 
   const task = list.find((elem) => elem.id === id);
-  const files = task.filesStore.filter((obj) => obj.id !== fileId);
-  task.filesStore = files;
+  task.filesStore = null;
 
   let error;
   try {

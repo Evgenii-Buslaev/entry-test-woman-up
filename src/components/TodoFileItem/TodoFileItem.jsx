@@ -5,7 +5,7 @@ import styles from "../../css/components/TodoFileItem/TodoFileItem.module.css";
 const TodoFileItem = ({ path, click }) => {
   return (
     <div className={styles.line}>
-      <link href={path.link} text={path.name}></link>
+      <a href={path.link}>{path.name}</a>
       <img src={remove} alt="remove file" onClick={click} />
     </div>
   );
