@@ -57,11 +57,17 @@ const editTodoProp = (id, prop, value, store, setFunc) => {
 
 const deleteTodo = (id, store) => {
   const { list, setList } = store;
-  setList(
-    list
-      .filter((elem) => elem.id !== id)
-      .sort((prev, curr) => prev.id - curr.id)
-  );
+  let error;
+  try {
+    TodoService.deleteTodo(id);
+  } catch (err) {
+    error = err;
+    console.log(error);
+  }
+
+  if (!error) {
+    TodoService.getAllTodos(setList);
+  }
 };
 
 const deleteFilePath = (id, store, fileId) => {

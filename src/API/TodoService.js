@@ -3,9 +3,10 @@ import {
   query,
   collection,
   onSnapshot,
+  doc,
   addDoc,
   updateDoc,
-  doc,
+  deleteDoc,
 } from "firebase/firestore";
 
 export default class TodoService {
@@ -28,5 +29,7 @@ export default class TodoService {
     await updateDoc(doc(db, "todos", todo.id), todo);
   }
 
-  static deleteTodo() {}
+  static async deleteTodo(id) {
+    await deleteDoc(doc(db, "todos", id));
+  }
 }
