@@ -18,6 +18,7 @@ export default class TodoService {
         todos.push({ id: doc.id, ...doc.data() });
       });
       setFunc(todos);
+      console.log(todos);
     });
   }
 

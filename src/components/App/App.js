@@ -15,8 +15,6 @@ function App() {
     TodoService.getAllTodos(setList);
   }, []);
 
-  console.log(list);
-
   const formAction = (action) => {
     return action ? setOpenForm(true) : setOpenForm(false);
   };
