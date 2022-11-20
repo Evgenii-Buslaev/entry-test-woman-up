@@ -10,9 +10,7 @@ export default function submitForm(e, data, store) {
     defineDone(data);
     let error;
     try {
-      TodoService.updateList(
-        [...store.list, data].sort((prev, curr) => prev.id - curr.id)
-      );
+      TodoService.createTodo(data);
     } catch (err) {
       error = err;
     }

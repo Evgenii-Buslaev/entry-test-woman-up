@@ -24,8 +24,10 @@ const Form = ({ close, data }) => {
   const submit = (e, data, store) => {
     const res = submitForm(e, data, store);
     if (res) {
-      submitForm(e, data, store);
       close();
+    } else {
+      alert("Сервер перегружен. Пожалуйста, попробуйте позже.");
+      return;
     }
   };
 

@@ -20,6 +20,10 @@ export default class TodoService {
     });
   }
 
+  static async createTodo(elem) {
+    await addDoc(collection(db, "todos"), elem);
+  }
+
   static async updateTodo(todo) {
     await updateDoc(doc(db, "todos", todo.id), todo);
   }
