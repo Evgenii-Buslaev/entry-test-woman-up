@@ -1,17 +1,12 @@
 .App {
   width: 100vw;
-  height: 100vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background-color: rgba(142, 219, 118, 0.418);
   transition-property: background-color;
   transition-duration: 1s;
-}
-
-.formActive {
-  background-color: rgba(142, 219, 118, 0.253);
 }
 
 .header {
