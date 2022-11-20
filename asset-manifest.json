@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/entry-test-woman-up/static/css/main.a802de05.css",
+    "main.js": "/entry-test-woman-up/static/js/main.a02fd039.js",
+    "static/media/cancel.png": "/entry-test-woman-up/static/media/cancel.c7472748b1e5c19b38e5.png",
+    "static/media/close.png": "/entry-test-woman-up/static/media/close.dcf94367e9379947f510.png",
+    "static/media/expand.png": "/entry-test-woman-up/static/media/expand.151f1fc22c06dbe6bc72.png",
+    "index.html": "/entry-test-woman-up/index.html",
+    "main.a802de05.css.map": "/entry-test-woman-up/static/css/main.a802de05.css.map",
+    "main.a02fd039.js.map": "/entry-test-woman-up/static/js/main.a02fd039.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a802de05.css",
+    "static/js/main.a02fd039.js"
+  ]
+}
