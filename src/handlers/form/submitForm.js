@@ -6,7 +6,6 @@ import defineDone from "./defineDone";
 export default function submitForm(e, data, store) {
   e.preventDefault();
   if (validateForm(data)) {
-    data.id = Math.random();
     defineDone(data);
     let error;
     try {
@@ -15,9 +14,7 @@ export default function submitForm(e, data, store) {
       error = err;
     }
     if (!error) {
-      store.setList(
-        [...store.list, data].sort((prev, curr) => prev.id - curr.id)
-      );
+      TodoService.getAllTodos(store.setList);
     }
     return true;
   }

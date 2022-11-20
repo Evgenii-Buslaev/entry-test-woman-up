@@ -1,5 +1,5 @@
 export default function validateForm(data) {
-  const { task, description, date } = data;
+  const { task, description } = data;
 
   if (!task || !description) {
     alert("Заполните, пожалуйста, все обязательные поля.");

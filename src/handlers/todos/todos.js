@@ -26,7 +26,6 @@ const editTodoProp = (id, prop, value, store, setFunc) => {
   }
 
   let elem = list.filter((todo) => todo.id === id)[0];
-  const otherElems = list.filter((todo) => todo.id !== id);
 
   switch (prop) {
     case "task":
@@ -52,7 +51,7 @@ const editTodoProp = (id, prop, value, store, setFunc) => {
   }
 
   if (!error) {
-    setList([...otherElems, elem].sort((prev, curr) => prev.id - curr.id));
+    TodoService.getAllTodos(setList);
   }
 };
 
@@ -72,8 +71,6 @@ const deleteFilePath = (id, store, fileId) => {
   const files = task.filesStore.filter((obj) => obj.id !== fileId);
   task.filesStore = files;
 
-  const otherTasks = list.filter((elem) => elem.id !== id);
-
   let error;
   try {
     TodoService.updateTodo(task);
@@ -82,14 +79,13 @@ const deleteFilePath = (id, store, fileId) => {
   }
 
   if (!error) {
-    setList([...otherTasks, task].sort((prev, curr) => prev.id - curr.id));
+    TodoService.getAllTodos(setList);
   }
 };
 
 const toggleTodoDone = (id, store) => {
   const { list, setList } = store;
   const elem = list.filter((todo) => todo.id === id);
-  const otherElems = list.filter((todo) => todo.id !== id);
   elem[0].done = !elem[0].done;
 
   let error;
@@ -100,7 +96,7 @@ const toggleTodoDone = (id, store) => {
   }
 
   if (!error) {
-    setList([...otherElems, ...elem].sort((prev, curr) => prev.id - curr.id));
+    TodoService.getAllTodos(setList);
   }
 };
 
