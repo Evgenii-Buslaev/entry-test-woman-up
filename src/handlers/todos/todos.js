@@ -1,3 +1,5 @@
+import TodoService from "../../API/TodoService";
+
 import defineDone from "../form/defineDone";
 
 const editTodoProp = (id, prop, value, store, setFunc) => {
@@ -42,7 +44,16 @@ const editTodoProp = (id, prop, value, store, setFunc) => {
       break;
   }
 
-  setList([...otherElems, elem].sort((prev, curr) => prev.id - curr.id));
+  let error;
+  try {
+    TodoService.updateTodo(elem);
+  } catch (err) {
+    console.log(err);
+  }
+
+  if (!error) {
+    setList([...otherElems, elem].sort((prev, curr) => prev.id - curr.id));
+  }
 };
 
 const deleteTodo = (id, store) => {
@@ -63,7 +74,16 @@ const deleteFilePath = (id, store, fileId) => {
 
   const otherTasks = list.filter((elem) => elem.id !== id);
 
-  setList([...otherTasks, task].sort((prev, curr) => prev.id - curr.id));
+  let error;
+  try {
+    TodoService.updateTodo(task);
+  } catch (err) {
+    console.log(err);
+  }
+
+  if (!error) {
+    setList([...otherTasks, task].sort((prev, curr) => prev.id - curr.id));
+  }
 };
 
 const toggleTodoDone = (id, store) => {
@@ -71,7 +91,17 @@ const toggleTodoDone = (id, store) => {
   const elem = list.filter((todo) => todo.id === id);
   const otherElems = list.filter((todo) => todo.id !== id);
   elem[0].done = !elem[0].done;
-  setList([...otherElems, ...elem].sort((prev, curr) => prev.id - curr.id));
+
+  let error;
+  try {
+    TodoService.updateTodo(elem[0]);
+  } catch (err) {
+    console.log(err);
+  }
+
+  if (!error) {
+    setList([...otherElems, ...elem].sort((prev, curr) => prev.id - curr.id));
+  }
 };
 
 const toggleOpenned = (state, setState) => {

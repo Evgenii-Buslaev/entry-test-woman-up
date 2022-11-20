@@ -4,12 +4,11 @@ import TodoService from "../../API/TodoService";
 import Form from "../Form/Form";
 import FormWrapper from "../FormWrapper/FormWrapper";
 import TodoList from "../TodoList/TodoList";
-import initialState from "../../initialState";
 
 import styles from "../../css/components/App/App.module.css";
 
 function App() {
-  const [list, setList] = useState(initialState);
+  const [list, setList] = useState([]);
   const [openForm, setOpenForm] = useState(false);
 
   useEffect(() => {
