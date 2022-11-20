@@ -1,5 +1,8 @@
 .defaultItem {
   margin: 1rem auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 0.7rem 1rem;
   font-size: 1.2rem;
   font-family: inherit;

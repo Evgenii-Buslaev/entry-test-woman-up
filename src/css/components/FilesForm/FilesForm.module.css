@@ -1,11 +1,4 @@
-.formCont {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.form {
+.cont {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -18,48 +11,32 @@
   background-color: rgba(118, 219, 206, 0.575);
 }
 
-.close {
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-  width: 50px;
-  cursor: pointer;
-}
-
-.close:hover {
-  opacity: 0.7;
-}
-
 @media (max-width: 1400px) {
-  .form {
+  .cont {
     width: 700px;
   }
 }
 
 @media (max-width: 900px) {
-  .form {
+  .cont {
     width: 500px;
   }
 }
 
 @media (max-width: 750px) {
-  .close {
-    top: 1rem;
-    width: 30px;
-  }
-  .form {
+  .cont {
     margin-top: 50px;
   }
 }
 
 @media (max-width: 600px) {
-  .form {
+  .cont {
     width: 90vw;
   }
 }
 
 @media (max-width: 500px) {
-  .form {
+  .cont {
     padding: 0;
   }
 }

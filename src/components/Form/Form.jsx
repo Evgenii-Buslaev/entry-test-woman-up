@@ -1,21 +1,16 @@
-import { useState } from "react";
 import Input from "../../UI/Input/Input";
 import InputDate from "../../UI/InputDate/InputDate";
-import InputFile from "../../UI/InputFile/InputFile";
 import Button from "../../UI/Button/Button";
-import ImageButton from "../../UI/ImageButton/ImageButton";
 
 import useForm from "../../hooks/useForm";
-import createAddingFile from "../../handlers/form/createAddingFile";
 import submitForm from "../../handlers/form/submitForm";
 
-import addFile from "../../assets/icons/add-file.png";
 import closeForm from "../../assets/icons/close.png";
 
 import styles from "../../css/components/Form/Form.module.css";
+import FilesForm from "../FilesForm/FilesForm";
 
 const Form = ({ close, data }) => {
-  const [uploadProgress, setUploadProgress] = useState(0);
   const formData = useForm();
 
   const { task, description, date, filesAmount, filesStore } = formData.data;
@@ -33,44 +28,31 @@ const Form = ({ close, data }) => {
   };
 
   return (
-    <form
-      className={styles.form}
-      onSubmit={(e) => submit(e, formData.data, data)}
-    >
-      <Input text="Название" data={{ state: task, setState: setTask }} />
-      <Input
-        text="Задача"
-        data={{ state: description, setState: setDescription }}
+    <div>
+      <form className={styles.form}>
+        <Input text="Название" data={{ state: task, setState: setTask }} />
+        <Input
+          text="Задача"
+          data={{ state: description, setState: setDescription }}
+        />
+        <InputDate text="Дедлайн" data={{ state: date, setState: setDate }} />
+        <img
+          className={styles.close}
+          src={closeForm}
+          alt="close"
+          onClick={close}
+        ></img>
+      </form>
+      <FilesForm
+        files={{ filesAmount, setFilesAmount }}
+        data={{ state: filesStore, setState: setFilesStore }}
       />
-      <InputDate text="Дедлайн" data={{ state: date, setState: setDate }} />
-      <ImageButton
-        click={() => createAddingFile(filesAmount, setFilesAmount)}
-        title="Добавить файл"
-        path={addFile}
-        alt="add files"
-      />
-      {filesAmount.length > 0 &&
-        filesAmount.map((elem) => (
-          <InputFile
-            id={elem.id}
-            key={elem.id}
-            click={{ filesAmount, setFilesAmount }}
-            data={{ state: filesStore, setState: setFilesStore }}
-            uploaded={uploadProgress}
-          />
-        ))}
       <Button
         text="Создать"
         type="submit"
         click={(e) => submit(e, formData.data, data)}
       />
-      <img
-        className={styles.close}
-        src={closeForm}
-        alt="close"
-        onClick={close}
-      ></img>
-    </form>
+    </div>
   );
 };
 
