@@ -11,6 +11,40 @@
   background-color: rgba(118, 219, 206, 0.575);
 }
 
+.file {
+  width: 80%;
+  height: auto;
+  padding: 1rem 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.file input,
+.file button {
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+input::file-selector-button,
+button {
+  padding: 0.5rem;
+  border-radius: 10px;
+  background-color: rgba(38, 129, 99, 0.514);
+  cursor: pointer;
+  border: none;
+}
+
+input::file-selector-button:hover,
+button:hover {
+  opacity: 0.7;
+}
+
+.progress {
+  margin: 1rem auto;
+}
+
 @media (max-width: 1400px) {
   .cont {
     width: 700px;
@@ -33,10 +67,24 @@
   .cont {
     width: 90vw;
   }
+  .file {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  input {
+    margin-bottom: 0.5rem;
+  }
+  button {
+    margin-top: 0.5rem;
+  }
 }
 
 @media (max-width: 500px) {
   .cont {
     padding: 0;
+  }
+  .file {
+    width: 80%;
   }
 }

@@ -39,9 +39,11 @@ const FilesForm = ({ data }) => {
 
   return (
     <form className={styles.cont} onSubmit={handlerSubmit}>
-      <input type="file" />
-      <button type="submit">Загрузить</button>
-      <div>{progress} %</div>
+      <div className={styles.file}>
+        <input type="file" />
+        <button type="submit">Загрузить</button>
+      </div>
+      <div className={styles.progress}>Загружено {progress} %</div>
     </form>
   );
 };
